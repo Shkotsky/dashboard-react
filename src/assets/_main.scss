@@ -1,0 +1,66 @@
+@import "./_variables.scss";
+@import "./modal.scss";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #efefef;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.my-projects-title {
+    display: flex;
+    padding: 0 4rem;
+    color: $light-blue;
+}
+
+.wrapper {
+    display: grid;
+    gap: 3em;
+    grid-template-columns: repeat(auto-fit, 260px);
+    padding: 2rem 4rem;
+}
+
+.btn {
+    background-color: $light-blue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 130px;
+    cursor: pointer;
+}
+
+.remove_decoration {
+    all: unset;
+}
+
+.chartContainer {
+    max-width: 450px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

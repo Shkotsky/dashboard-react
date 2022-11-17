@@ -1,0 +1,247 @@
+{
+  "folders": [
+    {
+      "0": "Gal67PtT",
+      "type": "project-folder",
+      "name": "test",
+      "created_at": "2022-11-11T10:37:42.233Z",
+      "updated_at": "2022-11-16T11:21:07.823Z",
+      "projects": [
+        "Deasde13P4"
+      ],
+      "id": "1Tr34P"
+    },
+    {
+      "type": "project-folder",
+      "name": "Folder number 1",
+      "created_at": "2022-11-14T08:14:41.536Z",
+      "updated_at": "2022-11-15T09:19:49.513Z",
+      "projects": [],
+      "id": "2PoPkL91"
+    },
+    {
+      "type": "project-folder",
+      "name": "Shvaba",
+      "created_at": "2022-11-14T09:29:08.149Z",
+      "updated_at": "2022-11-15T11:02:52.239Z",
+      "projects": [
+        "Gal67PtT"
+      ],
+      "id": "KKrKr14P5"
+    },
+    {
+      "type": "project-folder",
+      "name": "Durbin",
+      "created_at": "2022-11-14T12:43:54.679Z",
+      "updated_at": "2022-11-16T11:55:07.980Z",
+      "projects": [
+        "FOwt2pI",
+        "Deasde13P4"
+      ],
+      "id": "6wG4jCf"
+    },
+    {
+      "type": "project-folder",
+      "name": "Hasta la vista",
+      "created_at": "2022-11-15T09:44:39.325Z",
+      "updated_at": "2022-11-15T09:44:39.325Z",
+      "projects": [],
+      "id": "uDc0Tc_"
+    },
+    {
+      "type": "project-folder",
+      "name": "Barbie",
+      "created_at": "2022-11-15T09:44:55.933Z",
+      "updated_at": "2022-11-16T11:54:52.245Z",
+      "projects": [
+        "zUZEW7G"
+      ],
+      "id": "ditkhTN"
+    },
+    {
+      "type": "project-folder",
+      "name": "Chile",
+      "created_at": "2022-11-15T09:45:10.186Z",
+      "updated_at": "2022-11-15T10:56:17.565Z",
+      "projects": [],
+      "id": "X35iC2h"
+    },
+    {
+      "type": "project-folder",
+      "name": "Virginia",
+      "created_at": "2022-11-15T09:45:15.730Z",
+      "updated_at": "2022-11-15T11:02:18.730Z",
+      "projects": [
+        "WndrKilz"
+      ],
+      "id": "tJuNDfa"
+    },
+    {
+      "type": "project-folder",
+      "name": "Hockey Players",
+      "created_at": "2022-11-15T09:45:34.434Z",
+      "updated_at": "2022-11-15T11:02:47.479Z",
+      "projects": [
+        "zUZEW7G",
+        "Deasde13P4",
+        "FOwt2pI",
+        "Gal67PtT"
+      ],
+      "id": "SdiIyYs"
+    },
+    {
+      "type": "project-folder",
+      "name": "yyyy",
+      "created_at": "2022-11-17T10:13:53.508Z",
+      "updated_at": "2022-11-17T10:14:12.557Z",
+      "projects": [
+        "Deasde13P4"
+      ],
+      "id": "P8Hadia"
+    }
+  ],
+  "projects": [
+    {
+      "type": "project",
+      "name": "testProj",
+      "price": {
+        "total_euro": "2"
+      },
+      "source_language": "MK",
+      "target_languages": [
+        "EN"
+      ],
+      "progress": {
+        "percent": 0.2
+      },
+      "created_at": "2022-11-11T12:35:23.163Z",
+      "updated_at": "2022-11-11T12:35:23.163Z",
+      "id": "Pple412"
+    },
+    {
+      "type": "project",
+      "name": "Bogorodica",
+      "price": {
+        "total_euro": "2"
+      },
+      "source_language": "MK",
+      "target_languages": [
+        "EN",
+        "MK"
+      ],
+      "progress": {
+        "percent": 0
+      },
+      "created_at": "2022-11-11T12:35:49.387Z",
+      "updated_at": "2022-11-11T12:35:49.387Z",
+      "id": "Deasde13P4"
+    },
+    {
+      "type": "project",
+      "name": "Moler",
+      "price": {
+        "total_euro": "2"
+      },
+      "source_language": "FR",
+      "target_languages": [
+        "GE",
+        "MK"
+      ],
+      "progress": {
+        "percent": 0.6
+      },
+      "created_at": "2022-11-11T14:32:05.713Z",
+      "updated_at": "2022-11-11T14:32:05.713Z",
+      "id": "WndrKilz"
+    },
+    {
+      "type": "project",
+      "name": "Delicious ",
+      "price": {
+        "total_euro": "5"
+      },
+      "source_language": "MK",
+      "target_languages": [
+        "EN",
+        "MK"
+      ],
+      "progress": {
+        "percent": 0.5
+      },
+      "created_at": "2022-11-14T09:30:59.742Z",
+      "updated_at": "2022-11-14T09:30:59.742Z",
+      "id": "Gal67PtT"
+    },
+    {
+      "type": "project",
+      "name": "K-15",
+      "price": {
+        "total_euro": "4185"
+      },
+      "source_language": "FR",
+      "target_languages": [
+        "EN",
+        "MK"
+      ],
+      "progress": {
+        "percent": 1
+      },
+      "created_at": "2022-11-15T09:46:08.472Z",
+      "updated_at": "2022-11-15T09:46:08.472Z",
+      "id": "zUZEW7G"
+    },
+    {
+      "type": "project",
+      "name": "Jalapeno",
+      "price": {
+        "total_euro": "2001"
+      },
+      "source_language": "GE",
+      "target_languages": [
+        "GE",
+        "MK"
+      ],
+      "progress": {
+        "percent": 0.9
+      },
+      "created_at": "2022-11-15T09:46:57.428Z",
+      "updated_at": "2022-11-15T09:46:57.428Z",
+      "id": "FOwt2pI"
+    },
+    {
+      "type": "project",
+      "name": "Gelato",
+      "price": {
+        "total_euro": "45"
+      },
+      "source_language": "MK",
+      "target_languages": [
+        "EN",
+        "MK"
+      ],
+      "progress": {
+        "percent": 0.6
+      },
+      "created_at": "2022-11-15T12:26:01.085Z",
+      "updated_at": "2022-11-15T12:26:01.085Z",
+      "id": "oHRQqIb"
+    },
+    {
+      "type": "project",
+      "name": "noioio",
+      "price": {
+        "total_euro": "8898"
+      },
+      "source_language": "GE",
+      "target_languages": [
+        "MK"
+      ],
+      "progress": {
+        "percent": 0.8
+      },
+      "created_at": "2022-11-17T10:15:54.101Z",
+      "updated_at": "2022-11-17T10:15:54.101Z",
+      "id": "TOWzHvg"
+    }
+  ]
+}

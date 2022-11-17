@@ -1,0 +1,26 @@
+@import "../assets/variables.scss";
+
+nav {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+    }
+
+    h1 {
+        color: $light-blue;
+    }
+
+    button {
+        background-color: $light-blue;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        padding: $padding-15;
+        width: 200px;
+    }
+}
