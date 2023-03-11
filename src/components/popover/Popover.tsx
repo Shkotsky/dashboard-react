@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import classes from "./Popover.module.scss";
-import { RootState, AppDispatch } from "../../store";
-import { useLocation, useParams } from "react-router-dom";
-import { addProjectToFolder } from "../../store/folderSlice";
-import { Folder } from "../../interfaces/folderInterface";
+import { useDispatch, useSelector } from 'react-redux';
+import classes from './Popover.module.scss';
+import { RootState, AppDispatch } from '../../store';
+import { useLocation, useParams } from 'react-router-dom';
+import { addProjectToFolder } from '../../store/folderSlice';
+import { Folder } from '../../assets/interfaces/folderInterface';
 import {
   removeProjectFromFolder,
   fetchSingleFolder,
-} from "../../store/singleFolderSlice";
+} from '../../store/singleFolderSlice';
 
 interface Props {
   projectId: string;
@@ -24,17 +24,16 @@ const MoveToFolder = ({ projectId, onUpdatePopover }: Props) => {
 
   const handleMoveToFolder = (folder: Folder) => {
     dispatch(addProjectToFolder({ projectId, folder }));
-    onUpdatePopover("");
+    onUpdatePopover('');
   };
 
   const handleRemoveProject = async () => {
     const filteredProjects = singleFolder.projects
       .filter((project) => project.id !== projectId)
       .map((project) => project.id);
-    console.log(filteredProjects, "FILTERED");
     await dispatch(removeProjectFromFolder({ filteredProjects, id }));
     await dispatch(fetchSingleFolder(id));
-    onUpdatePopover("");
+    onUpdatePopover('');
   };
 
   const filteredFolders = folder.folders.map((folder) => {
@@ -46,7 +45,7 @@ const MoveToFolder = ({ projectId, onUpdatePopover }: Props) => {
 
   return (
     <div className={classes.popover}>
-      {location.pathname === "/" && (
+      {location.pathname === '/' && (
         <>
           <h4>Move to folder:</h4>
           {filteredFolders.map((item) => {
@@ -61,10 +60,11 @@ const MoveToFolder = ({ projectId, onUpdatePopover }: Props) => {
                 </div>
               );
             }
+            return null;
           })}
         </>
       )}
-      {location.pathname !== "/" && (
+      {location.pathname !== '/' && (
         <div
           className={classes.popover__folder}
           onClick={() => handleRemoveProject()}

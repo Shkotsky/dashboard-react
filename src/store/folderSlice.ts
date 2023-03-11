@@ -1,27 +1,27 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { Folder, FolderSliceState } from "../interfaces/folderInterface";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { Folder, FolderSliceState } from '../assets/interfaces/folderInterface';
 
 const initialState: FolderSliceState = {
   folders: [],
   loading: false,
-  error: "",
+  error: '',
   sorting: false,
 };
 
 export const fetchFolders = createAsyncThunk(
-  "folders/fetchFolders",
+  'folders/fetchFolders',
   async () => {
-    const response = await axios.get("http://localhost:3000/folders");
+    const response = await axios.get('http://localhost:3000/folders');
     return response.data;
   }
 );
 
 export const addFolder = createAsyncThunk(
-  "folder/addFolder",
+  'folder/addFolder',
   async (folderName: string) => {
-    const res = await axios.post("http://localhost:3000/folders", {
-      type: "project-folder",
+    const res = await axios.post('http://localhost:3000/folders', {
+      type: 'project-folder',
       name: folderName,
       created_at: new Date(),
       updated_at: new Date(),
@@ -36,7 +36,7 @@ interface Props {
 }
 
 export const addProjectToFolder = createAsyncThunk(
-  "folder/addProjectToFolder",
+  'folder/addProjectToFolder',
   async ({ projectId, folder }: Props) => {
     const res = await axios.patch(
       `http://localhost:3000/folders/${folder.id}`,
@@ -56,7 +56,7 @@ export const addProjectToFolder = createAsyncThunk(
 );
 
 const FolderSlice = createSlice({
-  name: "folder",
+  name: 'folder',
   initialState,
   reducers: {
     sortByProjectsSize: (state) => {
@@ -85,7 +85,7 @@ const FolderSlice = createSlice({
     builder.addCase(fetchFolders.fulfilled, (state, action) => {
       state.loading = false;
       state.folders = action.payload;
-      state.error = "";
+      state.error = '';
       state.sorting = !state.sorting;
     });
     builder.addCase(fetchFolders.rejected, (state, action) => {
@@ -96,7 +96,7 @@ const FolderSlice = createSlice({
     builder.addCase(addFolder.fulfilled, (state, actions) => {
       state.loading = false;
       state.folders = [...state.folders, actions.payload];
-      state.error = "";
+      state.error = '';
     });
     builder.addCase(addProjectToFolder.fulfilled, (state, action) => {
       state.loading = false;

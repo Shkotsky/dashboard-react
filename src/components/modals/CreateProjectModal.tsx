@@ -1,26 +1,18 @@
-import React, { useReducer, useRef, useState } from "react";
-import { toggleModal } from "../../store/projectModalSlice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store";
-import { addProject } from "../../store/projectSlice";
-import { removePropagation } from "../../modules/removePropagation";
+import React, { useReducer, useRef, useState } from 'react';
+import { toggleModal } from '../../store/projectModalSlice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store';
+import { addProject } from '../../store/projectSlice';
+import { removePropagation } from '../../modules/removePropagation';
 
 enum ProjectActionKind {
-  INCREASE = "INCREASE",
-  DECREASE = "DECREASE",
-  SET_NAME = "SET_NAME",
-  SET_PRICE = "SET_PRICE",
-  SET_SOURCELANG = "SET_SOURCELANG",
-  SET_TARGETLANG = "SET_TARGETLANG",
-  SET_RANGE = "SET_RANGE",
-}
-
-interface ProjectModalState {
-  name: string;
-  price: number;
-  sourceLang: string;
-  targetLang: string[];
-  range: string;
+  INCREASE = 'INCREASE',
+  DECREASE = 'DECREASE',
+  SET_NAME = 'SET_NAME',
+  SET_PRICE = 'SET_PRICE',
+  SET_SOURCELANG = 'SET_SOURCELANG',
+  SET_TARGETLANG = 'SET_TARGETLANG',
+  SET_RANGE = 'SET_RANGE',
 }
 
 interface ProjectAction {
@@ -55,12 +47,11 @@ function projectReducer(state: ProjectState, action: ProjectAction) {
         sourceLang: payload,
       };
     case ProjectActionKind.SET_TARGETLANG:
-      console.log(state.targetLang);
       return {
         ...state,
         targetLang: !state.targetLang.includes(payload)
           ? [...state.targetLang, payload]
-          : state.targetLang.filter((lang) => lang != payload),
+          : state.targetLang.filter((lang) => lang !== payload),
       };
     case ProjectActionKind.SET_RANGE:
       return {
@@ -79,35 +70,31 @@ const CreateProjectModal = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const [state, dispatchReducer] = useReducer(projectReducer, {
-    name: "",
+    name: '',
     price: 0,
-    sourceLang: "",
+    sourceLang: '',
     targetLang: [],
-    range: "0.0",
+    range: '0.0',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setDisabled(true);
 
-    try {
-      await dispatch(
-        addProject({
-          name: state.name,
-          price: {
-            total_euro: state.price,
-          },
-          source_language: state.sourceLang,
-          target_languages: state.targetLang,
-          progress: {
-            percent: Number(state.range),
-          },
-        })
-      );
-      dispatch(toggleModal());
-    } catch (e) {
-      console.log(e);
-    }
+    await dispatch(
+      addProject({
+        name: state.name,
+        price: {
+          total_euro: state.price,
+        },
+        source_language: state.sourceLang,
+        target_languages: state.targetLang,
+        progress: {
+          percent: Number(state.range),
+        },
+      })
+    );
+    dispatch(toggleModal());
   };
 
   return (

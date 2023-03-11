@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import Loader from "./Loader";
-import { ProjectSliceState, Project } from "../interfaces/projectInterface";
-
+import Loader from './Loader';
+import {
+  ProjectSliceState,
+  Project,
+} from '../assets/interfaces/projectInterface';
 import {
   DndContext,
   closestCenter,
@@ -10,25 +11,19 @@ import {
   useSensor,
   useSensors,
   DragEndEvent,
-  DragOverEvent,
-  DragMoveEvent,
-  DragStartEvent,
-} from "@dnd-kit/core";
+} from '@dnd-kit/core';
 import {
   arrayMove,
-  arraySwap,
   SortableContext,
   sortableKeyboardCoordinates,
-  rectSwappingStrategy,
   rectSortingStrategy,
-} from "@dnd-kit/sortable";
-import { SortableProject } from "./SortableProject";
-import { useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../store";
-import { useDispatch } from "react-redux";
-import { updateProjects } from "../store/projectSlice";
-import { useLocation } from "react-router-dom";
-import { updateFolderProjects } from "../store/singleFolderSlice";
+} from '@dnd-kit/sortable';
+import { SortableProject } from './SortableProject';
+import { AppDispatch } from '../store';
+import { useDispatch } from 'react-redux';
+import { updateProjects } from '../store/projectSlice';
+import { useLocation } from 'react-router-dom';
+import { updateFolderProjects } from '../store/singleFolderSlice';
 
 interface ProjectProps {
   project: ProjectSliceState;
@@ -48,14 +43,14 @@ const Projects = ({ project }: ProjectProps) => {
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
-  function handleDragEnd(event: any) {
+  function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
-    if (active.id !== over.id) {
+    if (active.id !== over?.id) {
       const oldIndex = project.projects.findIndex((i) => i.id === active.id);
-      const newIndex = project.projects.findIndex((i) => i.id === over.id);
+      const newIndex = project.projects.findIndex((i) => i.id === over?.id);
       const movedArray = arrayMove(project.projects, oldIndex, newIndex);
 
-      if (!location.pathname.includes("folder")) {
+      if (!location.pathname.includes('folder')) {
         dispatch(updateProjects(movedArray));
       } else {
         dispatch(updateFolderProjects(movedArray));
@@ -85,26 +80,30 @@ const Projects = ({ project }: ProjectProps) => {
                 (
                   {
                     name,
+                    type,
                     id,
                     price,
                     source_language,
                     progress,
                     target_languages,
                     created_at,
+                    updated_at,
                   }: Project,
                   index
                 ) => {
                   return (
                     <SortableProject
                       key={id}
-                      project={{
+                      {...{
                         name,
+                        type,
                         id,
                         price,
                         source_language,
                         progress,
                         target_languages,
                         created_at,
+                        updated_at,
                       }}
                     />
                   );

@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store";
-import { addFolder } from "../../store/folderSlice";
-import { removePropagation } from "../../modules/removePropagation";
+import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store';
+import { addFolder } from '../../store/folderSlice';
+import { removePropagation } from '../../modules/removePropagation';
 
 interface Props {
   isActive: boolean;
@@ -11,7 +11,7 @@ interface Props {
 
 const CreateFolderModal = ({ isActive, setIsActive }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>('');
   const [disabled, setDisabled] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -28,9 +28,7 @@ const CreateFolderModal = ({ isActive, setIsActive }: Props) => {
     try {
       await dispatch(addFolder(value));
       setIsActive(false);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
   return (
     <>
@@ -54,7 +52,7 @@ const CreateFolderModal = ({ isActive, setIsActive }: Props) => {
                   Create Folder
                 </button>
                 {disabled ? (
-                  <span style={{ color: "gray" }}>Cancel</span>
+                  <span style={{ color: 'gray' }}>Cancel</span>
                 ) : (
                   <span onClick={() => setIsActive(!isActive)}>Cancel</span>
                 )}

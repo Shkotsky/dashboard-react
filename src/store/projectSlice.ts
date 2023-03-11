@@ -1,35 +1,34 @@
-import axios from "axios";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Project, ProjectSliceState } from "../interfaces/projectInterface";
+import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  Project,
+  ProjectSliceState,
+} from '../assets/interfaces/projectInterface';
 
 const initialState: ProjectSliceState = {
   projects: [],
   loading: false,
-  error: "",
+  error: '',
 };
 
 export const fetchProjects = createAsyncThunk(
-  "projects/fetchProjects",
+  'projects/fetchProjects',
   async () => {
-    const res = await axios.get("http://localhost:3000/projects");
+    const res = await axios.get('http://localhost:3000/projects');
     return res.data;
   }
 );
 
 export const addProject = createAsyncThunk(
-  "project/addProject",
+  'project/addProject',
   async (project: Partial<Project>) => {
-    try {
-      const res = await axios.post("http://localhost:3000/projects", {
-        type: "project",
-        ...project,
-        created_at: new Date(),
-        updated_at: new Date(),
-      });
-      return res.data;
-    } catch (e) {
-      console.log(e);
-    }
+    const res = await axios.post('http://localhost:3000/projects', {
+      type: 'project',
+      ...project,
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
+    return res.data;
   }
 );
 
@@ -39,24 +38,20 @@ interface PatchProps {
 }
 
 export const editProjectName = createAsyncThunk(
-  "project/editProjectName",
+  'project/editProjectName',
   async (props: PatchProps) => {
-    try {
-      const res = await axios.patch(
-        `http://localhost:3000/projects/${props.id}`,
-        {
-          name: props.renameValue,
-        }
-      );
-      return res.data;
-    } catch (e) {
-      console.log(e);
-    }
+    const res = await axios.patch(
+      `http://localhost:3000/projects/${props.id}`,
+      {
+        name: props.renameValue,
+      }
+    );
+    return res.data;
   }
 );
 
 const ProjectSlice = createSlice({
-  name: "project",
+  name: 'project',
   initialState,
   reducers: {
     updateProjects: (state, action) => {
@@ -70,7 +65,7 @@ const ProjectSlice = createSlice({
     builder.addCase(fetchProjects.fulfilled, (state, action) => {
       state.loading = false;
       state.projects = action.payload;
-      state.error = "";
+      state.error = '';
     });
     builder.addCase(fetchProjects.rejected, (state, action) => {
       state.loading = false;

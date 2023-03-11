@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../store";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from '../store';
 import {
   fetchFolders,
   sortByProjectsSize,
   sortByDate,
   updateFolders,
-} from "../store/folderSlice";
-import Loader from "./Loader";
+} from '../store/folderSlice';
+import Loader from './Loader';
 import {
   DndContext,
   closestCenter,
@@ -15,20 +15,19 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
-} from "@dnd-kit/core";
+  DragEndEvent,
+} from '@dnd-kit/core';
 import {
   arrayMove,
-  arraySwap,
   SortableContext,
   sortableKeyboardCoordinates,
-  rectSwappingStrategy,
   rectSortingStrategy,
-} from "@dnd-kit/sortable";
-import { SortableFolder } from "./SortableFolder";
+} from '@dnd-kit/sortable';
+import { SortableFolder } from './SortableFolder';
 
 enum FolderSortType {
-  Date = "Date",
-  Project = "Project",
+  Date = 'Date',
+  Project = 'Project',
 }
 
 const Folders = () => {
@@ -38,19 +37,19 @@ const Folders = () => {
 
   useEffect(() => {
     dispatch(fetchFolders());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    if (selected === "Date") {
+    if (selected === 'Date') {
       dispatch(sortByDate());
-    } else if (selected === "Project") {
+    } else if (selected === 'Project') {
       dispatch(sortByProjectsSize());
     }
-  }, [selected]);
+  }, [dispatch, selected]);
 
   useEffect(() => {
     dispatch(sortByDate());
-  }, [folderState.sorting]);
+  }, [dispatch, folderState.sorting]);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -63,12 +62,11 @@ const Folders = () => {
     })
   );
 
-  function handleDragEnd(event: any) {
+  function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
-    if (active.id !== over.id) {
+    if (active.id !== over?.id) {
       const oldIndex = folderState.folders.findIndex((i) => i.id === active.id);
-      const newIndex = folderState.folders.findIndex((i) => i.id === over.id);
-      console.log(oldIndex, newIndex);
+      const newIndex = folderState.folders.findIndex((i) => i.id === over?.id);
       dispatch(
         updateFolders(arrayMove(folderState.folders, oldIndex, newIndex))
       );
@@ -105,7 +103,7 @@ const Folders = () => {
                 strategy={rectSortingStrategy}
               >
                 {folderState.folders.map((folder) => (
-                  <SortableFolder key={folder.id} folder={folder} />
+                  <SortableFolder key={folder.id} {...folder} />
                 ))}
               </SortableContext>
             </DndContext>

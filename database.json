@@ -1,22 +1,21 @@
 {
   "folders": [
     {
-      "0": "Gal67PtT",
       "type": "project-folder",
       "name": "test",
       "created_at": "2022-11-11T10:37:42.233Z",
       "updated_at": "2022-11-16T11:21:07.823Z",
-      "projects": [
-        "Deasde13P4"
-      ],
+      "projects": [],
       "id": "1Tr34P"
     },
     {
       "type": "project-folder",
       "name": "Folder number 1",
       "created_at": "2022-11-14T08:14:41.536Z",
-      "updated_at": "2022-11-15T09:19:49.513Z",
-      "projects": [],
+      "updated_at": "2023-03-11T21:00:14.634Z",
+      "projects": [
+        "Deasde13P4"
+      ],
       "id": "2PoPkL91"
     },
     {
@@ -98,6 +97,16 @@
         "Deasde13P4"
       ],
       "id": "P8Hadia"
+    },
+    {
+      "type": "project-folder",
+      "name": "new Fold",
+      "created_at": "2023-03-11T22:20:23.972Z",
+      "updated_at": "2023-03-11T22:21:29.781Z",
+      "projects": [
+        "BDtQmLC"
+      ],
+      "id": "1b-fkct"
     }
   ],
   "projects": [
@@ -242,6 +251,24 @@
       "created_at": "2022-11-17T10:15:54.101Z",
       "updated_at": "2022-11-17T10:15:54.101Z",
       "id": "TOWzHvg"
+    },
+    {
+      "type": "project",
+      "name": "New proj",
+      "price": {
+        "total_euro": "55"
+      },
+      "source_language": "",
+      "target_languages": [
+        "MK",
+        "GE"
+      ],
+      "progress": {
+        "percent": 0.5
+      },
+      "created_at": "2023-03-11T22:21:18.857Z",
+      "updated_at": "2023-03-11T22:21:18.857Z",
+      "id": "BDtQmLC"
     }
   ]
 }

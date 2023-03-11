@@ -1,13 +1,12 @@
-import Folders from "../components/Folders";
-import CreateFolderModal from "../components/modals/CreateFolderModal";
-import CreateProjectModal from "../components/modals/CreateProjectModal";
-import Projects from "../components/Projects";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../store";
-import { fetchProjects } from "../store/projectSlice";
-import { Bar, Doughnut } from "react-chartjs-2";
-import type { ChartData, ChartOptions } from "chart.js";
+import Folders from '../components/Folders';
+import CreateFolderModal from '../components/modals/CreateFolderModal';
+import CreateProjectModal from '../components/modals/CreateProjectModal';
+import Projects from '../components/Projects';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from '../store';
+import { fetchProjects } from '../store/projectSlice';
+import { Bar, Doughnut } from 'react-chartjs-2';
 import {
   Chart,
   ArcElement,
@@ -16,7 +15,7 @@ import {
   CategoryScale,
   BarElement,
   LinearScale,
-} from "chart.js";
+} from 'chart.js';
 Chart.register(
   ArcElement,
   Tooltip,
@@ -48,18 +47,18 @@ const Home = ({
     labels: folders.map((folder) => folder.name),
     datasets: [
       {
-        label: "Folder size",
+        label: 'Folder size',
         data: folders.map((folder) => folder.projects.length),
         backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-          "rgb(86, 255, 134)",
-          "rgb(251, 107, 107)",
-          "rgb(0, 211, 254)",
-          "rgb(104, 83, 0)",
-          "rgb(113, 113, 113)",
-          "rgb(255, 75, 228)",
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(86, 255, 134)',
+          'rgb(251, 107, 107)',
+          'rgb(0, 211, 254)',
+          'rgb(104, 83, 0)',
+          'rgb(113, 113, 113)',
+          'rgb(255, 75, 228)',
         ],
         hoverOffset: 16,
       },
@@ -69,9 +68,9 @@ const Home = ({
     labels: project.projects.map((project) => project.name),
     datasets: [
       {
-        label: "Progress Bar",
+        label: 'Progress Bar',
         data: project.projects.map((project) => project.progress.percent),
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   };
